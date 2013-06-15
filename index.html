@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ProspectEye Utvecklingsuppgift</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">    
+    
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>        
+    <script type="text/javascript" src="js/underscore-min.js"></script>        
+    <script type="text/javascript" src="js/backbone-min.js"></script>        
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+  </head>
+
+  <body>
+
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">ProspectEye</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="overview-menu"><a href="#">Översikt</a></li>
+                    <li class="lead-menu active"><a href="#">Leads</a></li>
+                    <li class="filter-menu"><a href="#filter">Filtrera</a></li>
+                    <li class="report-menu"><a href="#">Rapporter</a></li>
+                </ul>
+                <form class="navbar-search pull-right dropdown">
+                    <input id="searchText" type="search" class="search-query dropdown-toggle" placeholder="Search" autocomplete="off">
+                </form>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <br/>
+
+    <div class="row-fluid">
+        <!-- span12 makes this div max width -->
+        <div class="span12" id="content"></div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p></p>
+    </footer>
+
+</div>
+
+  <script src="js/app.js"></script>
+  <script src="js/views/lead.js"></script>
+  <script src="js/models/in-memory.js"></script>  
+
+  <script type="text/template" id="leads_template">
+    <table class="table">
+      <tbody>
+        <tr>
+            <td width="300" valign="top">
+                <strong>
+                    <i class="icon-briefcase icon-2x"></i> <%= companyName %>
+                </strong>
+                <span style="font-size: 11px">
+                    <div>Orgnummer: <%= orgnr %></div>
+                    <div>Omsättning: <%= turnover %> Tkr</div>
+                    <span>Kreditvärdighet: <i class="<%= creditValue === 'AAA' ? 'icon-thumbs-up' : 'icon-thumbs-down' %>"></i></span>
+                </span>
+            </td>
+            <td valign="top">
+                <b>Avklarade Milstolpar:</b> (<%= _.size(achivements) %>/4)
+                <% if (achivements['1']) { %>
+                    <i class="icon-dollar icon-large"></i>
+                <% } %>
+                <% if (achivements['2']) { %>
+                    <i class="icon-camera icon-large"></i>
+                <% } %>
+                <% if (achivements['3']) { %>
+                    <i class="icon-comments-alt icon-large"></i>
+                <% } %>
+                <% if (achivements['4']) { %>
+                    <i class="icon-phone icon-large"></i>
+                <% } %>
+                <br><br>
+                <span>
+                    <button class="btn btn-success"><i class="icon-phone icon-large"></i> Ring <%= phone %></button>
+                </span>
+            </td>
+            <td valign="top">
+                <b>Senaste besöket:</b> <%= lastVisit %>
+                <br>
+                <b>Totalt antal besök:</b> <%= totalVisits %>
+                <br>
+                <b>Accumulerat Värde:</b> <%= accumulateValue %>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+  </script>
+
+  </body>
+</html>
