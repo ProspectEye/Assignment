@@ -31,3 +31,9 @@ Hur ska uppgiften lösas?
 Man får inte ta bort några befintliga ramverk men man får gärna lägga till fler om man behagar. Tanken är att man ska kunna sätta sig in i befintlig kod och utgå från den. OBS! Allt i designen ska ska göras om helt och hållet förutom menyn.
 
 Till sin hjälp får man gärna använda färdiga komponenter i Bootstrap och Font awesome (ikon-bibliotek). Man får mer än gärna komplettera med egna bilder (gjorda i PS eller liknande ritprogram) eller importer från ex. iconfinder etc.
+
+Hur börjar jag jobba med uppgiften?
+-------------------
+Dra ner detta projektet som en zip-fil och sen öppnar du index.html i din favvo-webbläsare och sen är det bara och köra igång!
+
+Lycka till!
